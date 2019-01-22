@@ -1,19 +1,23 @@
 package com.company;
 
-/**
- * Created by wo580 on 1/14/19.
- */
+import java.util.ArrayList;
+
 public class Hanoi {
 
-    private int discs = 0;
 
-    public Hanoi(int discs)
+    public Hanoi(){}
+    public void solve(int discs, char from, char aux, char to)
     {
-        this.discs = discs;
+        if(discs == 1)
+        {
+            System.out.println("Move from " + from + " to " + to);
+        }
+        else
+        {
+                solve(discs-1, from, to, aux);
+            System.out.println("Move from " + from + " to " + to + ".");
+            solve(discs-1, aux, from, to);
+        }
     }
-
-
-
-    public int getDiscs() { return discs; }
 
 }
